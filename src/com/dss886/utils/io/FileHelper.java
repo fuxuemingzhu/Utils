@@ -72,22 +72,4 @@ public class FileHelper {
         return result;
     }
 
-//    public static void getFileInfo() {
-//        File file = null;
-//        BufferedReader br = null;
-//        String strXmlLine = "";
-//        String strXmlInfo = "";
-//        try {
-//            file = new File(strFilePath);//文件路径
-//            br = new BufferedReader(new FileReader(file));
-//            while ((strXmlLine = br.readLine()) != null) {
-//                strXmlInfo += strXmlLine;
-//            }
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println(strXmlInfo);
-//    }
 }
