@@ -2,6 +2,7 @@ package com.dss886.utils.io;
 
 import com.dss886.utils.http.utils.ProgressListener;
 import com.dss886.utils.log.LogUtils;
+import sun.rmi.runtime.Log;
 
 import java.io.*;
 
@@ -72,4 +73,32 @@ public class FileHelper {
         return result;
     }
 
+    /**
+     * rename files in a folder with prefix or suffix
+     * unused params (prefix or suffix ) shall be null
+     * @throws IOException
+     */
+    public static void renameFile(File srcfolder, File tarFolder, String prefix, String suffix) throws IOException {
+        if (!srcfolder.exists()) {
+            throw new IOException("Folder is not exit!");
+        }
+        if (!srcfolder.isDirectory()) {
+            throw new IOException("folder param is not a directory!");
+        }
+        if (!tarFolder.exists()) {
+            tarFolder.mkdirs();
+            LogUtils.v("FileHelper", "tarFolder is not exist, create it");
+        }
+        if (prefix == null) {
+            prefix = "";
+        }
+        if (suffix == null) {
+            suffix = "";
+        }
+        for(File file:srcfolder.listFiles()){
+            file.renameTo(new File(tarFolder.getPath() + File.pathSeparator
+                    + prefix + file.getName() + suffix));
+        }
+
+    }
 }
