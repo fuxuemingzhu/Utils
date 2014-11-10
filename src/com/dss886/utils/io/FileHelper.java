@@ -74,6 +74,25 @@ public class FileHelper {
     }
 
     /**
+     * read some line of a file's head
+     * @throws IOException
+     */
+    public static String readFile(File file, String charset) throws IOException {
+        if (!file.exists() || !file.isFile()) {
+            throw new IOException("File is not exits");
+        }
+        InputStreamReader reader = new InputStreamReader(new FileInputStream(file),charset);
+        BufferedReader bufferedReader = new BufferedReader(reader);
+
+        String strLine, result = "";
+        while ((strLine = bufferedReader.readLine())!= null) {
+            result += strLine;
+        }
+        bufferedReader.close();
+        return result;
+    }
+
+    /**
      * rename files in a folder with prefix or suffix
      * unused params (prefix or suffix ) shall be null
      * @throws IOException

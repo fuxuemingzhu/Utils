@@ -11,7 +11,7 @@ public class LogUtils {
 
     private static boolean enableLog = true;
 
-    public static final void v(String tag, String msg){
+    public static void v(String tag, String msg){
         print("v",tag,msg);
     }
 
