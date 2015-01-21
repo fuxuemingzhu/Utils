@@ -74,7 +74,7 @@ public class FileHelper {
     }
 
     /**
-     * read some line of a file's head
+     * read a file
      * @throws IOException
      */
     public static String readFile(File file, String charset) throws IOException {
@@ -86,7 +86,7 @@ public class FileHelper {
 
         String strLine, result = "";
         while ((strLine = bufferedReader.readLine())!= null) {
-            result += strLine;
+            result += strLine + "\n";
         }
         bufferedReader.close();
         return result;
