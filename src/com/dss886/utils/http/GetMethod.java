@@ -52,10 +52,10 @@ public class GetMethod {
         return result;
     }
 
-    public void executeToFile(String url, File folder) throws IOException {
+    public void executeToFile(String url, File file) throws IOException {
         CloseableHttpResponse response = onExecute(url);
         InputStream inputStream = response.getEntity().getContent();
-        FileHelper.writeFile(inputStream, folder);
+        FileHelper.writeFile(inputStream, file);
         response.close();
         httpGet.abort();
     }
